@@ -1,0 +1,22 @@
+{
+  "name": "empty",
+  "version": "1.0.0",
+  "description": "空项目、测试项目",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mkolp11597753/empty.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mkolp11597753/empty/issues"
+  },
+  "homepage": "https://github.com/mkolp11597753/empty#readme",
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
+}
