@@ -4,7 +4,8 @@
   "description": "空项目、测试项目",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "e2e": "cypress open",
+    "cy:run": "cy2 run"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,8 @@
   },
   "homepage": "https://github.com/mkolp11597753/empty#readme",
   "dependencies": {
-    "axios": "^0.21.1"
+    "axios": "^0.21.1",
+    "cy2": "^1.3.0",
+    "cypress": "^8.3.1"
   }
 }
