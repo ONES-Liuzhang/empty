@@ -1,3 +1,5 @@
 describe(() => {
-  it("empty test", () => {});
+  it("empty test", () => {
+    console.log(123);
+  });
 });
