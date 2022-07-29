@@ -24,4 +24,4 @@ jobs:
   node-docker:
     runs-on: ubuntu-latest
     container:
-      image: lzspace/ones-open-test
+      image: lzspace/ones-open-test:intel
