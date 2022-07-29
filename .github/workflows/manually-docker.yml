@@ -21,9 +21,7 @@ on:
         required: false
 
 jobs:
-  print-tag:
+  node-docker:
     runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-    - run: docker run --name open-test-container -i --rm --env OPEN_ENV_BRANCH=master -v $PWD/reporters:/open-test/reporters lzspace/ones-open-test
+    container:
+      image: lzspace/ones-open-test
