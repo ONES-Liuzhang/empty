@@ -25,4 +25,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run open-test docker
-        run: docker run --name open-test-container -i --rm --env OPEN_ENV_BRANCH=master -v $PWD/reporters:/open-test/reporters $DOCKERHUB_REPO
+        run: docker run --name open-test-container -i --rm \
+         --env OPEN_ENV_BRANCH=${{ inputs.Branch }} \
+         --env OPEN_ENV_USERINFO=${{ inputs.UserInfo }} \
+         --env OPEN_ENV_SPRINT=${{ inputs.Sprint }} \
+         -v $PWD/reporters:/open-test/reporters \
+         $DOCKERHUB_REPO
