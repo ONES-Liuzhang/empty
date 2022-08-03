@@ -11,8 +11,11 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2.4.2
       
-      - name: Download a Build Artifact
-        uses: actions/download-artifact@v3.0.0
+      - run: mkdir -p path/to/artifact
+
+      - run: echo hello > path/to/artifact/world.txt
+
+      - uses: actions/upload-artifact@v3
         with:
-          name: Artifact
-          path: ./package.json
+          name: my-artifact
+          path: path/to/artifact/world.txt
