@@ -1,0 +1,23 @@
+name: send email
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send email
+      
+        uses: dawidd6/action-send-mail@v3.6.1
+        with:
+          serveraddress: smtp.163.com
+          serverport: 465
+          username: ${{ secrets.MAILUSERNAME }}
+          password: ${{ secrets.MAILPASSWORD }}
+          subject: git actions 发送邮件测试
+          body: file://result.html
+          to: lz11597753@gmail.com
+          from: GitHub Actions
+          content_type: text/html
