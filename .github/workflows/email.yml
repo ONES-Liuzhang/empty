@@ -18,4 +18,4 @@ jobs:
           subject: git actions 发送邮件测试
           body: Hello git action
           to: lz11597753@gmail.com
-          from: 18670319384@163.com
+          from: ${{ github.triggering_actor }}
