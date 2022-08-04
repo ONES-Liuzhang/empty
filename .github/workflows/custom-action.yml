@@ -22,7 +22,7 @@ jobs:
             - args: [--frozen-lockfile, --prod, --ignore-scripts]
         
       - name: run custom actions
-        uses: ./actions/index.js
+        uses: ./
         with:
           warn: true
           Sprint: "迭代"
