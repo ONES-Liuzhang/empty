@@ -1,5 +1,14 @@
 const core = require("@actions/core");
 
+const Inputs = {
+  Sprint: "Sprint",
+  Branch: "Branch",
+  UserName: "UserName",
+  Password: "Password",
+  TramName: "TramName",
+  warn: "warn",
+};
+
 function getInputs() {
   const sprint = core.getInput(Inputs.Sprint);
   const branch = core.getInput(Inputs.Branch);
