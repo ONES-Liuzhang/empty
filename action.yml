@@ -13,4 +13,4 @@ inputs:
 
 runs:
   using: 'node16'
-  main: 'actions/index.js'
+  main: '.github/actions/index.js'
