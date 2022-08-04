@@ -9,7 +9,7 @@ jobs:
     
       steps:
         - name: Check
-          run: |
+          run: >
             if [! -f "/data/test.txt"];then
               echo "文件不存在"
               else
