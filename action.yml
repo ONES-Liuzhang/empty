@@ -1,0 +1,16 @@
+name: 'Custom Actions Test'
+description: '测试一下下'
+author: 'liuzhang'
+
+inputs:
+  sprint:
+    description: "Your sprint name."
+    required: true
+  branch:
+    description: "The branch name what you want to test."
+    default: "master"
+    required: true
+
+runs:
+  using: 'node16'
+  main: 'actions/index.js'
