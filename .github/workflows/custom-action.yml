@@ -22,5 +22,8 @@ jobs:
             - args: [--frozen-lockfile, --prod, --ignore-scripts]
         
       - name: run custom actions
-        run: node actions/index.js
-        
+        uses: ./actions/index.js
+        with:
+          warn: true
+          Sprint: "迭代"
+          Branch: "master"
