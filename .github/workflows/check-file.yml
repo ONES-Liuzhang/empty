@@ -1,0 +1,17 @@
+name: Check file Test
+
+on:
+  workflow_dispatch
+  
+jobs:
+  check-file-test:
+      runs-on: ubuntu-latest
+    
+      steps:
+        - name: Check
+          run: |
+            if [! -f "/data/test.txt"];then
+              echo "文件不存在"
+              else
+              echo "文件存在"
+            fi
