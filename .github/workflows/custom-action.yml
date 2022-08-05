@@ -24,6 +24,8 @@ jobs:
       - name: run custom actions
         uses: ./
         with:
-          warn: true
           sprint: "迭代"
           branch: "master"
+
+      - name: next
+        run: echo "进行下一步操作"
