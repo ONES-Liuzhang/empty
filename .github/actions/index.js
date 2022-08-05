@@ -2,7 +2,7 @@ const core = require("@actions/core");
 const child_process = require("child_process");
 
 function run() {
-  const subProcess = child_process.execSync("node ./custom.js", {
+  const subProcess = child_process.exec("node ./custom.js", {
     stdio: "inherit",
   });
 
