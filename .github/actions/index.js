@@ -1,42 +1,22 @@
 const core = require("@actions/core");
-
-const Inputs = {
-  Sprint: "Sprint",
-  Branch: "Branch",
-  UserName: "UserName",
-  Password: "Password",
-  TramName: "TramName",
-  warn: "warn",
-};
-
-function getInputs() {
-  const sprint = core.getInput(Inputs.Sprint);
-  const branch = core.getInput(Inputs.Branch);
-
-  /** Optional */
-  const username = core.getInput(Inputs.UserName);
-  const password = core.getInput(Inputs.Password);
-  const teamName = core.getInput(Inputs.TramName);
-  const warn = core.getInput(Inputs.warn);
-
-  return {
-    sprint,
-    branch,
-    username,
-    password,
-    teamName,
-    warn,
-  };
-}
+const child_process = require("child_process");
 
 function run() {
-  const inputs = getInputs();
+  const subProcess = child_process.execSync("node ./custom.js", {
+    stdio: "inherit",
+  });
 
-  console.log(JSON.stringify(inputs));
+  subProcess.on("uncaughtException", (error) => {
+    core.setFailed(`运行失败！全局拦截错误：`, error);
+  });
 
-  if (inputs.warn) {
-    core.setFailed("失败!");
-  }
+  subProcess.on("exit", (code) => {
+    if (code === 1) {
+      core.setFailed(`失败`);
+    } else {
+      core.info(`成功`);
+    }
+  });
 }
 
 run();
