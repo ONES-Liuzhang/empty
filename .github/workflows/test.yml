@@ -19,5 +19,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 运行 ${{ DESCRIPTION }}
+      - name: 运行 ${{ inputs.sprint }} - ${{ inputs.branch }}
         run: echo "$DESCRIPTION"
