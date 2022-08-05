@@ -12,7 +12,7 @@ function run() {
 
   subProcess.on("exit", (code) => {
     if (code === 1) {
-      core.warning(`失败`);
+      core.setFailed(`失败`);
     } else {
       core.info(`成功`);
     }
