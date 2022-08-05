@@ -11,13 +11,14 @@ on:
         default: "master"
         required: true
 
+env:
+  DESCRIPTION: ${{ inputs.sprint }} - ${{ inputs.branch }}
 
 jobs:
   log-context:
     runs-on: ubuntu-latest
     
-    env:
-     DESCRIPTION: ${{ inputs.sprint - inputs.branch }}
+
 
     steps:
       - name: $DESCRIPTION
