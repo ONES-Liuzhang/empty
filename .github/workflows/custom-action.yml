@@ -1,9 +1,9 @@
 name: Custom action
-on: 
-  workflow_dispatch
+
+on: workflow_dispatch
 
 jobs:
-  dump_contexts_to_log:
+  custom-action:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -13,17 +13,17 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          
+
       - name: Setup pnpm
         uses: pnpm/action-setup@v2.2.2
         with:
           version: 7.3.0
           run_install: |
             - args: [--frozen-lockfile, --prod, --ignore-scripts]
-        
+
       - name: run custom actions
         uses: ./
         with:
           warn: true
-          Sprint: "迭代"
-          Branch: "master"
+          sprint: "迭代"
+          branch: "master"
