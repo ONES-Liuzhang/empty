@@ -28,4 +28,9 @@ jobs:
           branch: "master"
 
       - name: next
-        run: echo "进行下一步操作"
+        if: always()
+        run: echo "always 进行下一步操作"
+
+      - name: if-failed
+        if: failure()
+        run: echo "run custom actions failed."
