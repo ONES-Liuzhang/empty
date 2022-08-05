@@ -1,0 +1,23 @@
+name: Test
+
+on:
+  workflow_dispatch:
+    inputs:
+      sprint:
+        description: "Your sprint name."
+        required: true
+      branch:
+        description: "The branch name what you want to test."
+        default: "master"
+        required: true
+
+env:
+ DESCRIPTION: ${{ inputs.sprint - inputs.branch }}
+
+jobs:
+  log-context:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: $DESCRIPTION
+        run: echo $DESCRIPTION 
