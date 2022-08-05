@@ -19,5 +19,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: $DESCRIPTION
-        run: echo $DESCRIPTION 
+      - name: ${{ DESCRIPTION }}
+        run: echo ${{ DESCRIPTION }}
