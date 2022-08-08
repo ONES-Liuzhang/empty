@@ -33,11 +33,41 @@ jobs:
 
       - name: if-failed
         if: failure()
+#         run: >
+#           curl 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=20349830-109c-4f90-80c2-a220f2c0e0bb' -H 'Content-Type: application/json' -d '{ 
+#             "msgtype": "template_card"
+#             "template_card": {
+#               "card_type": "text_notice",
+#               "source": {
+#                 "desc": "open-test"
+#               },
+#               "main_title": {
+#                 "title": "❌ 插槽测试未通过！"
+#               },
+#               "sub_title_text": "请分析测试报告",
+#               "horizontal_content_list": [
+#                 {
+#                   "keyname":"测试报告",
+#                   "value": "P8066-master",
+#                   "type": 1,
+#                   "url": "https://github.com/BangWork/open-test/actions/runs/2812650295"
+#                 }
+#               ],
+#               "card_action": {
+#                 "type": 1,
+#                 "url": "https://github.com/BangWork/open-test/actions"
+#               },
+#             }
+#           }'
         run: >
-          curl 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=20349830-109c-4f90-80c2-a220f2c0e0bb' -H 'Content-Type: application/json' -d '{ 
-            "msgtype": "template_card"
+          curl 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=20349830-109c-4f90-80c2-a220f2c0e0bb' -H 'Content-Type: application/json' -d '{
+            "msgtype": "template_card",
             "template_card": {
               "card_type": "text_notice",
+              "card_action": {
+                "type": 1,
+                "url": "https://github.com/BangWork/open-test/actions"
+              },
               "source": {
                 "desc": "open-test"
               },
@@ -53,9 +83,5 @@ jobs:
                   "url": "https://github.com/BangWork/open-test/actions/runs/2812650295"
                 }
               ],
-              "card_action": {
-                "type": 1,
-                "url": "https://github.com/BangWork/open-test/actions"
-              },
             }
           }'
