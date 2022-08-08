@@ -59,29 +59,40 @@ jobs:
 #               },
 #             }
 #           }'
+#         run: >
+#           curl 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=20349830-109c-4f90-80c2-a220f2c0e0bb' -H 'Content-Type: application/json' -d '{
+#             "msgtype": "template_card",
+#             "template_card": {
+#               "card_type": "text_notice",
+#               "card_action": {
+#                 "type": 1,
+#                 "url": "https://github.com/BangWork/open-test/actions"
+#               },
+#               "source": {
+#                 "desc": "open-test"
+#               },
+#               "main_title": {
+#                 "title": "❌ 插槽测试未通过！"
+#               },
+#               "sub_title_text": "若企业微信内置浏览器无权限，请复制 url 并使用浏览器打开",
+#               "horizontal_content_list": [
+#                 {
+#                   "keyname":"测试报告",
+#                   "value": "https://github.com/BangWork/open-test/actions/runs/2812650295",
+#                   "type": 1,
+#                   "url": "https://github.com/BangWork/open-test/actions/runs/2812650295"
+#                 }
+#               ],
+#             }
+#           }'
         run: >
           curl 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=20349830-109c-4f90-80c2-a220f2c0e0bb' -H 'Content-Type: application/json' -d '{
-            "msgtype": "template_card",
-            "template_card": {
-              "card_type": "text_notice",
-              "card_action": {
-                "type": 1,
-                "url": "https://github.com/BangWork/open-test/actions"
-              },
-              "source": {
-                "desc": "open-test"
-              },
-              "main_title": {
-                "title": "❌ 插槽测试未通过！"
-              },
-              "sub_title_text": "请分析测试报告",
-              "horizontal_content_list": [
-                {
-                  "keyname":"测试报告",
-                  "value": "P8066-master",
-                  "type": 1,
-                  "url": "https://github.com/BangWork/open-test/actions/runs/2812650295"
-                }
-              ],
+            "msgtype": "markdown",
+            "markdown": {
+              "content": "❌ 插槽测试未通过！\n
+                 >迭代号:<font color=\"info\">P8066</font>
+                 >测试分支号:<font color=\"info\">master</font>
+                 >测试报告:<font color=\"info\">https://github.com/BangWork/open-test/actions/runs/2812650295</font>
+              "
             }
           }'
