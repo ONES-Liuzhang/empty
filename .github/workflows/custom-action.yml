@@ -41,7 +41,7 @@ jobs:
               "source": {
                 "desc": "open-test"
               },
-              "main-title": {
+              "main_title": {
                 "title": "❌ 插槽测试未通过！"
               },
               "sub_title_text": "请分析测试报告",
