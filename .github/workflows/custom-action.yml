@@ -90,9 +90,8 @@ jobs:
             "msgtype": "markdown",
             "markdown": {
               "content": "❌ 插槽测试未通过！\n
-                 >迭代号:<font color=\"info\">P8066</font>
-                 >测试分支号:<font color=\"info\">master</font>
-                 >测试报告:<font color=\"info\">https://github.com/BangWork/open-test/actions/runs/2812650295</font>
-              "
+                 >迭代号: <font color=\"info\">P8066</font>
+                 >测试分支号: <font color=\"info\">master</font>
+                 >查看测试报告: [https://github.com/BangWork/open-test/actions/runs/2812650295](https://github.com/BangWork/open-test/actions/runs/2812650295)"
             }
           }'
