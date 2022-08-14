@@ -92,6 +92,9 @@ jobs:
               "content": "❌ 插槽测试未通过！\n
                  >迭代号: <font color=\"info\">P8066</font>
                  >测试分支号: <font color=\"info\">master</font>
-                 >查看测试报告: [https://github.com/BangWork/open-test/actions/runs/2812650295](https://github.com/BangWork/open-test/actions/runs/2812650295)"
+                 >查看测试报告: [https://github.com/BangWork/open-test/actions/runs/${{ github.run_id }}](https://github.com/BangWork/open-test/actions/runs//${{ github.run_id }})"
             }
           }'
+
+
+            "msgtype": "markdown",
