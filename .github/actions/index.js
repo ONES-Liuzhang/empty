@@ -1,16 +1,11 @@
 const core = require("@actions/core");
-const child_process = require("child_process");
 
 function run() {
-  const subProcess = child_process.exec("node ./custom.js", {
-    stdio: "inherit",
-  });
-
-  subProcess.on("uncaughtException", (error) => {
+  process.on("uncaughtException", (error) => {
     core.setFailed(`运行失败！全局拦截错误：`, error);
   });
 
-  subProcess.on("exit", (code) => {
+  process.on("exit", (code) => {
     if (code === 1) {
       core.setFailed(`失败`);
     } else {
@@ -21,6 +16,12 @@ function run() {
   process.on("exit", (code) => {
     console.log("parent process exit with errorCode ", code);
   });
+  
+  if ((Math.random() * 100) & 1) {
+    process.exit(0)
+  } else {
+    process.exit(1)
+  }
 }
 
 run();
