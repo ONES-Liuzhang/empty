@@ -33,6 +33,11 @@ jobs:
 
       - name: if-failed
         if: failure()
+        run: echo "失败"
+        
+      - name: if-success
+        if: success()
+        run: echo "成功"
 #         run: >
 #           curl 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=20349830-109c-4f90-80c2-a220f2c0e0bb' -H 'Content-Type: application/json' -d '{ 
 #             "msgtype": "template_card"
@@ -85,16 +90,13 @@ jobs:
 #               ],
 #             }
 #           }'
-        run: >
-          curl 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=20349830-109c-4f90-80c2-a220f2c0e0bb' -H 'Content-Type: application/json' -d '{
-            "msgtype": "markdown",
-            "markdown": {
-              "content": "❌ 插槽测试未通过！\n
-                 >迭代号: <font color=\"info\">P8066</font>
-                 >测试分支号: <font color=\"info\">master</font>
-                 >查看测试报告: [https://github.com/BangWork/open-test/actions/runs/${{ github.run_id }}](https://github.com/BangWork/open-test/actions/runs//${{ github.run_id }})"
-            }
-          }'
-
-
-            "msgtype": "markdown",
+#         run: >
+#           curl 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=20349830-109c-4f90-80c2-a220f2c0e0bb' -H 'Content-Type: application/json' -d '{
+#             "msgtype": "markdown",
+#             "markdown": {
+#               "content": "❌ 插槽测试未通过！\n
+#                  >迭代号: <font color=\"info\">P8066</font>
+#                  >测试分支号: <font color=\"info\">master</font>
+#                  >查看测试报告: [https://github.com/BangWork/open-test/actions/runs/${{ github.run_id }}](https://github.com/BangWork/open-test/actions/runs//${{ github.run_id }})"
+#             }
+#           }'
