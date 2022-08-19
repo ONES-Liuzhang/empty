@@ -14,12 +14,12 @@ jobs:
         with:
           node-version: 16
 
-#       - name: Setup pnpm
-#         uses: pnpm/action-setup@v2.2.2
-#         with:
-#           version: 7.3.0
-#           run_install: |
-#             - args: [--frozen-lockfile, --prod, --ignore-scripts]
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.2.2
+        with:
+          version: 7.3.0
+          run_install: |
+            - args: [--frozen-lockfile, --prod, --ignore-scripts]
 
       - name: run custom actions
         uses: ./
