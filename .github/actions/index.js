@@ -6,7 +6,8 @@ function run() {
   });
 
   process.on("exit", (code) => {
-    if (code === 1) {
+    console.log('process exit with errCode ', code)
+    if (code === 2) {
       core.setFailed(`失败`);
     } else {
       core.info(`成功`);
@@ -18,9 +19,9 @@ function run() {
   });
   
   if ((Math.random() * 100) & 1) {
-    process.exit(0)
-  } else {
     process.exit(1)
+  } else {
+    process.exit(2)
   }
 }
 
