@@ -10,13 +10,8 @@ on:
       - ready_for_review
       - reopened
       - unlocked
-  pull_request_review:
-    types:
-      - submitted
-  check_suite:
-    types:
-      - completed
-  status: {}
+    branches:
+      - update-**
 jobs:
   automerge:
     runs-on: ubuntu-latest
