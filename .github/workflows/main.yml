@@ -1,7 +1,8 @@
 name: Context testing
 on: 
-  workflow_dispatch
-
+  pull_request:
+    types:
+      - opened
 jobs:
   dump_contexts_to_log:
     runs-on: ubuntu-latest
