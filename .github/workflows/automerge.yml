@@ -11,9 +11,10 @@ on:
       - reopened
       - unlocked
     branches:
-      - update-**
+      - main
 jobs:
   automerge:
+    if: startsWith(github.head_ref, "update-")
     runs-on: ubuntu-latest
     steps:
       - id: automerge
