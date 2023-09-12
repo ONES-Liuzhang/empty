@@ -1,7 +1,11 @@
 const core = require("@actions/core");
 const artifact = require("@actions/artifact");
-const { readFileSync } = require("../../utils");
+const { readFileSync, writeFileSync } = require("../../utils");
 const artifactClient = artifact.create();
+
+function getCookie() {
+  return ["2333"];
+}
 
 /**
  * 1.根据名字创建一个 artifact
@@ -14,14 +18,23 @@ function run() {
   };
 
   const artifactName = `${inputs.sprint}$$${inputs.branch}`;
-  // download
-  artifactClient.downloadArtifact(artifactName, "./artifact_tmp.json");
-  const jsonStr = readFileSync("./artifact_tmp.json");
-  if (jsonStr) {
-    console.log(jsonStr);
+  // 尝试下载 cookie download
+  try {
+    artifactClient.downloadArtifact(artifactName, "./artifact_tmp.json");
+    const jsonStr = readFileSync("./artifact_tmp.json");
+    if (jsonStr) {
+      console.log(`成功下载 artifact: ${artifactName}`, jsonStr);
+    }
+  } catch (err) {
+    console.error("下载失败", err);
   }
 
-  // upload
+  // 获取新的 cookie，保存到临时文件
+  const cookie = getCookie();
+  const cookieStr = JSON.stringify(cookie);
+  writeFileSync("./tmp.json", cookieStr);
+
+  // 上传文件
   artifactClient.uploadArtifact(artifactName, "./tmp.json");
 
   process.on("uncaughtException", (error) => {
@@ -40,12 +53,6 @@ function run() {
   process.on("exit", (code) => {
     console.log("parent process exit with errorCode ", code);
   });
-
-  if ((Math.random() * 100) & 1) {
-    process.exit(1);
-  } else {
-    process.exit(2);
-  }
 }
 
 run();
