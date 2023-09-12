@@ -24,9 +24,7 @@ async function run() {
 
     console.log(downloadResponse);
     // const jsonStr = await readFileSync("./artifact_tmp.json");
-    if (jsonStr) {
-      console.log(`成功下载 artifact: ${artifactName}`, downloadResponse);
-    }
+    console.log(`成功下载 artifact: ${artifactName}`, downloadResponse);
   } catch (err) {
     console.error("下载失败", err);
   }
