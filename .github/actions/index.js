@@ -20,10 +20,12 @@ async function run() {
   const artifactName = `${inputs.sprint}$$${inputs.branch}`;
   // 尝试下载 cookie download
   try {
-    await artifactClient.downloadArtifact(artifactName, "./artifact_tmp.json");
-    const jsonStr = await readFileSync("./artifact_tmp.json");
+    const downloadResponse = await artifactClient.downloadArtifact(artifactName, "./artifact_tmp.json");
+
+    console.log(downloadResponse);
+    // const jsonStr = await readFileSync("./artifact_tmp.json");
     if (jsonStr) {
-      console.log(`成功下载 artifact: ${artifactName}`, jsonStr);
+      console.log(`成功下载 artifact: ${artifactName}`, downloadResponse);
     }
   } catch (err) {
     console.error("下载失败", err);
