@@ -1,4 +1,5 @@
 node_modules
 videos
 
-should-ignore-dir/
+should-ignore
+should-ignore-dir

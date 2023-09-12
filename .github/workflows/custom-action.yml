@@ -17,7 +17,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v2.2.2
         with:
-          version: 7.3.0
+          version: 8
           run_install: |
             - args: [--frozen-lockfile, --prod, --ignore-scripts]
 
@@ -34,12 +34,12 @@ jobs:
       - name: if-failed
         if: failure()
         run: echo "失败"
-        
+
       - name: if-success
         if: success()
         run: echo "成功"
 #         run: >
-#           curl 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=20349830-109c-4f90-80c2-a220f2c0e0bb' -H 'Content-Type: application/json' -d '{ 
+#           curl 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=20349830-109c-4f90-80c2-a220f2c0e0bb' -H 'Content-Type: application/json' -d '{
 #             "msgtype": "template_card"
 #             "template_card": {
 #               "card_type": "text_notice",
