@@ -40,7 +40,7 @@ async function run() {
 
   try {
     // 上传文件
-    await artifactClient.uploadArtifact(artifactName, "./tmp.json");
+    await artifactClient.uploadArtifact(artifactName, ["./tmp.json"], ".");
   } catch (err) {
     console.error("上传失败", err);
   }
