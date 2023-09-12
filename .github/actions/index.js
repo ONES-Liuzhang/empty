@@ -11,7 +11,7 @@ function getCookie() {
  * 1.根据名字创建一个 artifact
  * 2.
  */
-function run() {
+async function run() {
   const inputs = {
     sprint: core.getInput("sprint"),
     branch: core.getInput("branch"),
@@ -20,8 +20,8 @@ function run() {
   const artifactName = `${inputs.sprint}$$${inputs.branch}`;
   // 尝试下载 cookie download
   try {
-    artifactClient.downloadArtifact(artifactName, "./artifact_tmp.json");
-    const jsonStr = readFileSync("./artifact_tmp.json");
+    await artifactClient.downloadArtifact(artifactName, "./artifact_tmp.json");
+    const jsonStr = await readFileSync("./artifact_tmp.json");
     if (jsonStr) {
       console.log(`成功下载 artifact: ${artifactName}`, jsonStr);
     }
@@ -29,13 +29,21 @@ function run() {
     console.error("下载失败", err);
   }
 
-  // 获取新的 cookie，保存到临时文件
-  const cookie = getCookie();
-  const cookieStr = JSON.stringify(cookie);
-  writeFileSync("./tmp.json", cookieStr);
+  try {
+    // 获取新的 cookie，保存到临时文件
+    const cookie = getCookie();
+    const cookieStr = JSON.stringify(cookie);
+    await writeFileSync("./tmp.json", cookieStr);
+  } catch (err) {
+    console.error("获取 cookie 失败", err);
+  }
 
-  // 上传文件
-  artifactClient.uploadArtifact(artifactName, "./tmp.json");
+  try {
+    // 上传文件
+    await artifactClient.uploadArtifact(artifactName, "./tmp.json");
+  } catch (err) {
+    console.error("上传失败", err);
+  }
 
   process.on("uncaughtException", (error) => {
     core.setFailed(`运行失败！全局拦截错误：`, error);
