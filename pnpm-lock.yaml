@@ -20,6 +20,9 @@ dependencies:
   cypress:
     specifier: ^8.3.1
     version: 8.7.0
+  mkdirp:
+    specifier: ^3.0.1
+    version: 3.0.1
 
 devDependencies:
   yargs:
@@ -826,6 +829,12 @@ packages:
 
   /minimist@1.2.6:
     resolution: {integrity: sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==}
+    dev: false
+
+  /mkdirp@3.0.1:
+    resolution: {integrity: sha512-+NsyUUAZDmo6YVHzL/stxSu3t9YS1iljliy3BSDrXJ/dkn1KYdmtZODGGjLcc9XLgVVpH4KshHB8XmZgMhaBXg==}
+    engines: {node: '>=10'}
+    hasBin: true
     dev: false
 
   /ms@2.1.2:
